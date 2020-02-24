@@ -1,3 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/mobile_nav" />
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mobile_nav"
+    app:startDestination="@id/todayWeatherFragment">
+    <fragment
+        android:id="@+id/todayWeatherFragment"
+        android:label="today_weather_fragment"
+        android:name="com.debcomp.aql.olhaachuva.ui.today.TodayWeatherFragment"
+        tools:layout="@layout/today_weather_fragment"
+        />
+    <fragment
+        android:id="@+id/weekListFragment"
+        android:name="com.debcomp.aql.olhaachuva.ui.week.list.WeekListFragment"
+        android:label="week_list_fragment"
+        tools:layout="@layout/week_list_fragment" >
+        <action
+            android:id="@+id/actionDetail"
+            app:destination="@id/weekDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/weekDetailFragment"
+        android:name="com.debcomp.aql.olhaachuva.ui.week.detail.WeekDetailFragment"
+        android:label="future_detail_weather_fragment"
+        tools:layout="@layout/week_detail_fragment" >
+        <argument
+            android:name="dateString"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.debcomp.aql.olhaachuva.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+
+</navigation>
